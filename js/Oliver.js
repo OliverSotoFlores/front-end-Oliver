@@ -4,9 +4,24 @@ $(document).ready(function(){
         success: function(data){
           let capital = '';
           let language = '';
-
           var table_data = '';
+
+          //ORDER
+          function compare( a, b ) {
+            if ( a.name.common < b.name.common ){
+              return -1;
+            }
+            if ( a.last_nom > b.last_nom ){
+              return 1;
+            }
+            return 0;
+          }
+          data.sort( compare );
+
           for (var i = 0; i < data.length; i++) {
+
+
+
             //Check Capital
             if (data[i].capital=="") {
               capital = "No capital to display";
