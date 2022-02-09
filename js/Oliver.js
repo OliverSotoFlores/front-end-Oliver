@@ -1,5 +1,6 @@
 $(document).ready(function(){
-    $.ajax({ url: "https://restcountries.com/v3.1/all",
+    $.ajax({
+        url: "https://restcountries.com/v3.1/all",
         context: document.body,
         success: function(data){
           let capital = '';
@@ -54,5 +55,22 @@ $(document).ready(function(){
         error: function(d){
             alert("404. Please wait until the File is Loaded.");
         }
+    });
+});
+
+$(document).ready(function(){
+
+    // code to read selected table row cell data (values).
+    $("#countriTable").on('click','tr',function(){
+         // get the current row
+         var currentRow=$(this).closest("tr");
+         var name=currentRow.find("td:eq(0)").text();
+         $.ajax({
+           url: "https://en.wikipedia.org/api/rest_v1/page/summary/"+name,
+             success: function(data){
+               bootbox.alert(name+"<br>"+data.extract_html);
+             }
+         });
+
     });
 });
