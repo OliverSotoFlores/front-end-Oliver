@@ -2,7 +2,7 @@ $(window).on( "load", function () {
 
 
       makePager = function(page){
-                    var show_per_page = 3;
+                    var show_per_page = 25;
                     var number_of_items = $('#countriTable tr').length;
                     var number_of_pages = Math.ceil(number_of_items / show_per_page);
                     var number_of_pages_todisplay = 10;
