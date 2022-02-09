@@ -7,7 +7,7 @@ $(document).ready(function(){
     table = document.getElementById("countriTable");
     tr = table.getElementsByTagName("tr");
     th = tr[0].getElementsByTagName("th");
-    for (var i = 0; i < th.length; i++) {
+    for (var i = 0; i < th.length-1; i++) {
       options += "<option value="+i+">"+th[i].innerHTML+"</option>"
 
     }
@@ -15,10 +15,12 @@ $(document).ready(function(){
     $("#filterSelect").append(options)
     $.ajax({
         url: "https://restcountries.com/v3.1/all",
+        dataType: "json",
+        contentType: "application/json",
         context: document.body,
         success: function(data){
-          let capital = '';
-          let language = '';
+          var capital = '';
+          var language = '';
           var table_data = '';
 
           //ORDER
@@ -43,10 +45,10 @@ $(document).ready(function(){
             }else {
               capital = data[i].capital;
             }
-
             //Check for Languages
-            $.each(data[i].languages, function(data){
+            $.each(data[i].languages, function(index,data){
               language += data + ", ";
+
             })
             if (language=="") {
               language = "No Language to display";
