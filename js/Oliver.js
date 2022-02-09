@@ -9,7 +9,7 @@ $(document).ready(function(){
 
           //ORDER
           function compare( a, b ) {
-            if ( a.name.common < b.name.common ){
+            if ( a.name.official < b.name.official ){
               return -1;
             }
             if ( a.last_nom > b.last_nom ){
@@ -76,15 +76,47 @@ $(document).ready(function(){
     });
 });
 
-function myFunction() {
+
+  $("#myInput").on("keyup", function() {
+    var value = $(this).val().toLowerCase();
+    $("#myTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  });
+
+
+$("#filterInput").on("keyup",function filter() {
+
+  if(column = document.getElementById("filterSelect").value == -1){
+    var value = $(this).val().toLowerCase();
+    $("#countriTable tr").filter(function() {
+      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+    });
+  }else {
+
   // Declare variables
   var input, filter, table, tr, td, i;
   input = document.getElementById("filterInput");
+  column = document.getElementById("filterSelect").value;
+  if(input.value.length >= 3){
   filter = input.value.toUpperCase();
   table = document.getElementById("countriTable");
   tr = table.getElementsByTagName("tr");
-  column = document.getElementById("filterSelect").value;
-
+  // Loop through all table rows, and hide those who don't match the search query
+  for (i = 0; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[column];
+    if (td) {
+      if (td.innerHTML.toUpperCase().indexOf(filter) > -1) {
+        tr[i].style.display = "";
+      } else {
+        tr[i].style.display = "none";
+      }
+    }
+  }
+}else {
+  filter = "";
+  table = document.getElementById("countriTable");
+  tr = table.getElementsByTagName("tr");
   // Loop through all table rows, and hide those who don't match the search query
   for (i = 0; i < tr.length; i++) {
     td = tr[i].getElementsByTagName("td")[column];
@@ -97,6 +129,8 @@ function myFunction() {
     }
   }
 }
+}
+});
 
 function paginate(){
   $('table.paginated').each(function() {

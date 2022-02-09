@@ -1,4 +1,4 @@
-t<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -10,13 +10,14 @@ t<!DOCTYPE html>
     <div class="container">
       <div class="row">
         <div class="col-md-6">
-          <input class="form-control" type="text" id="filterInput" onkeyup="myFunction()">
+          <input class="form-control" type="text" id="filterInput" >
         </div>
         <div class="col-md-1">
           <span>Search By</span>
         </div>
         <div class="col-md-5">
           <select class="form-select" id="filterSelect">
+            <option value="-1">chose an option</option>
             <option value="0">Name</option>
             <option value="1">Capital</option>
             <option value="2">Region</option>
