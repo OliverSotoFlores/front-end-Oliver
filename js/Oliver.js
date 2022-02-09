@@ -1,4 +1,15 @@
 $(document).ready(function(){
+
+    var options = "";
+    table = document.getElementById("countriTable");
+    tr = table.getElementsByTagName("tr");
+    th = tr[0].getElementsByTagName("th");
+    for (var i = 0; i < th.length; i++) {
+      options += "<option value="+i+">"+th[i].innerHTML+"</option>"
+      
+    }
+
+    $("#filterSelect").append(options)
     $.ajax({
         url: "https://restcountries.com/v3.1/all",
         context: document.body,
