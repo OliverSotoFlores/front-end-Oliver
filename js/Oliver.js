@@ -1,3 +1,6 @@
+showed = 0;
+
+//Fill the table
 $(document).ready(function(){
 
     var options = "";
@@ -6,7 +9,7 @@ $(document).ready(function(){
     th = tr[0].getElementsByTagName("th");
     for (var i = 0; i < th.length; i++) {
       options += "<option value="+i+">"+th[i].innerHTML+"</option>"
-      
+
     }
 
     $("#filterSelect").append(options)
@@ -70,6 +73,7 @@ $(document).ready(function(){
     });
 });
 
+//bootbox
 $(document).ready(function(){
 
     // code to read selected table row cell data (values).
@@ -80,35 +84,43 @@ $(document).ready(function(){
          $.ajax({
            url: "https://en.wikipedia.org/api/rest_v1/page/summary/"+name,
              success: function(data){
-               bootbox.alert(name+"<br>"+data.extract_html);
+               bootbox.alert({
+                  size: "large",
+                  closeButton: false,
+                  title: name,
+                  message: data.extract_html,
+                  callback: function(){ /* your callback code */ }
+              })
              }
          });
 
     });
 });
 
-
-  $("#myInput").on("keyup", function() {
-    var value = $(this).val().toLowerCase();
-    $("#myTable tr").filter(function() {
-      $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
-  });
-
-
+//Filter
 $("#filterInput").on("keyup",function filter() {
 
   if(column = document.getElementById("filterSelect").value == -1){
     var value = $(this).val().toLowerCase();
-    $("#countriTable tr").filter(function() {
+    var filter = $("#countriTable tr").filter(function() {
       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-    });
+    })
+    if ($("tr:visible").length == 0 && showed == 0) {
+      bootbox.alert("No data to display");
+      showed = 1;
+    }else {
+      if ($("tr:visible").length == 0) {
+      }else {
+        showed = 0;
+      }
+    }
   }else {
 
   // Declare variables
   var input, filter, table, tr, td, i;
   input = document.getElementById("filterInput");
   column = document.getElementById("filterSelect").value;
+  var cont = 0;
   if(input.value.length >= 3){
   filter = input.value.toUpperCase();
   table = document.getElementById("countriTable");
@@ -121,9 +133,21 @@ $("#filterInput").on("keyup",function filter() {
         tr[i].style.display = "";
       } else {
         tr[i].style.display = "none";
+        cont++;
       }
     }
   }
+  if (cont == tr.length-1 && showed == 0) {
+    bootbox.alert("No data to display");
+    showed = 1;
+  }else{
+    if (cont == tr.length-1) {
+    }else {
+      showed = 0;
+    }
+  }
+
+
 }else {
   filter = "";
   table = document.getElementById("countriTable");
@@ -142,28 +166,3 @@ $("#filterInput").on("keyup",function filter() {
 }
 }
 });
-
-function paginate(){
-  $('table.paginated').each(function() {
-    var currentPage = 0;
-    var numPerPage = 10;
-    var $table = $(this);
-    $table.bind('repaginate', function() {
-        $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
-    });
-    $table.trigger('repaginate');
-    var numRows = $table.find('tbody tr').length;
-    var numPages = Math.ceil(numRows / numPerPage);
-    var $pager = $('<div class="pager"></div>');
-    for (var page = 0; page < numPages; page++) {
-        $('<span class="page-number"></span>').text(page + 1).bind('click', {
-            newPage: page
-        }, function(event) {
-            currentPage = event.data['newPage'];
-            $table.trigger('repaginate');
-            $(this).addClass('active').siblings().removeClass('active');
-        }).appendTo($pager).addClass('clickable');
-    }
-    $pager.insertBefore($table).find('span.page-number:first').addClass('active');
-});
-}
