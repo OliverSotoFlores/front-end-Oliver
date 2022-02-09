@@ -23,7 +23,9 @@
           <input class="form-control" type="text" placeholder="Write..." id="filterInput" >
         </div>
       </div>
-
+      <input type='hidden' id='show_per_page' />
+      <div id='page_navigation'>
+      </div>
       <table class="table " id="countriTable">
         <thead>
           <tr id="thead">
@@ -38,10 +40,13 @@
         <tbody>
         </tbody>
       </table>
+      <input type='hidden' id='current_page' />
+
     </div>
     <script type="text/javascript" src="js/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="js/bootbox.min.js"></script>
     <script type="text/javascript" src="js/Oliver.js"></script>
+    <script type="text/javascript" src="js/pagination.js"></script>
   </body>
 </html>
