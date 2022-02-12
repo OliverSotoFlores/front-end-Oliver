@@ -60,6 +60,15 @@ const cloneBanner = banner.cloneNode(false);
 
 
 //Leasson 6 DOM Traversing
-bookList = document.querySelector("#book-list");
-console.log("The parent node is." + bookList.parentNode);
-console.log("The parent element is." + bookList.parentElement.parentElement);
+
+//console.log("The parent node is.",bookList.parentNode);
+//console.log("The parent element is.",bookList.parentElement.parentElement);
+
+//Leasson 7 DOM Traersing
+console.log('book list next sibling is',bookList.nextSibling);
+console.log('book list next sibling is',bookList.nextElementSibling);
+
+console.log('book list next sibling is',bookList.previousSibling);
+console.log('book list next sibling is',bookList.previousElementSibling);
+
+bookList.previousElementSibling.querySelector('p').innerHTML+= "</br> Hola a todos soy Oliver xd"
