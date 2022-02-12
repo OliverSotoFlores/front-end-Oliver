@@ -44,16 +44,22 @@ Array.from(books).forEach(function(book) {
    book.textContent += '(bok title)';
  })
 
- const bookList = document.querySelector('#book-list');
+ var bookList = document.querySelector('#book-list');
  //bookList.innerHTML = '<h2>Books and more books..</h2>';
  bookList.innerHTML += '<p>This is how you add html</p>';
 
 
  //Leasson 5 DOM nodes
 const banner = document.querySelector("#page-banner");
-console.log('#page-banner node type is:'+ banner.nodeType);
-console.log('#page-banner node type is:'+ banner.nodeName);
-console.log('#page-banner has child nodes:'+ banner.hasChildNodes());
+//console.log('#page-banner node type is:'+ banner.nodeType);
+//console.log('#page-banner node type is:'+ banner.nodeName);
+//console.log('#page-banner has child nodes:'+ banner.hasChildNodes());
 
 const cloneBanner = banner.cloneNode(false);
-console.log(cloneBanner);
+//console.log(cloneBanner);
+
+
+//Leasson 6 DOM Traversing
+bookList = document.querySelector("#book-list");
+console.log("The parent node is." + bookList.parentNode);
+console.log("The parent element is." + bookList.parentElement.parentElement);
