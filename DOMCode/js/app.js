@@ -1,7 +1,7 @@
 
 //Leasson 1
 const search = document.getElementById('search-books');
-const bookList = document.getElementById('book-list');
+
 
 
 
@@ -35,5 +35,15 @@ books = document.querySelectorAll("#book-list li .name");
 //console.log(books);
 
 Array.from(books).forEach(function(book) {
-  console.log(book);
+  //console.log(book);
 })
+
+ //Leasson 4
+ books = document.querySelectorAll("#book-list li .name");
+ books.forEach(function(book) {
+   book.textContent += '(bok title)';
+ })
+
+ const bookList = document.querySelector('#book-list');
+ //bookList.innerHTML = '<h2>Books and more books..</h2>';
+ bookList.innerHTML += '<p>This is how you add html</p>';
