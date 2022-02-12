@@ -65,10 +65,36 @@ const cloneBanner = banner.cloneNode(false);
 //console.log("The parent element is.",bookList.parentElement.parentElement);
 
 //Leasson 7 DOM Traersing
-console.log('book list next sibling is',bookList.nextSibling);
+/*console.log('book list next sibling is',bookList.nextSibling);
 console.log('book list next sibling is',bookList.nextElementSibling);
 
 console.log('book list next sibling is',bookList.previousSibling);
-console.log('book list next sibling is',bookList.previousElementSibling);
+console.log('book list next sibling is',bookList.previousElementSibling);*/
 
 bookList.previousElementSibling.querySelector('p').innerHTML+= "</br> Hola a todos soy Oliver xd"
+
+//Leasson 8: DOM events/removing
+
+var h2 = document.querySelector('#book-list h2');
+
+h2.addEventListener('click', function(event) {
+  console.log(event.target);
+  console.log(event);
+})
+
+var btns = document.querySelectorAll('#book-list .delete');
+console.log(btns);
+
+Array.from(btns).forEach(function(btn) {
+  btn.addEventListener('click',function(e) {
+    const li = e.target.parentElement;
+    li.parentNode.removeChild(li)
+  })
+})
+
+const link = document.querySelector('#page-banner a');
+
+link.addEventListener('click', function (e) {
+  e.preventDefault();
+  console.log('Navigation to',e.target.textContent,' Was prevented');
+})
