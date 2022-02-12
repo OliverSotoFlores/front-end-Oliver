@@ -47,3 +47,13 @@ Array.from(books).forEach(function(book) {
  const bookList = document.querySelector('#book-list');
  //bookList.innerHTML = '<h2>Books and more books..</h2>';
  bookList.innerHTML += '<p>This is how you add html</p>';
+
+
+ //Leasson 5 DOM nodes
+const banner = document.querySelector("#page-banner");
+console.log('#page-banner node type is:'+ banner.nodeType);
+console.log('#page-banner node type is:'+ banner.nodeName);
+console.log('#page-banner has child nodes:'+ banner.hasChildNodes());
+
+const cloneBanner = banner.cloneNode(false);
+console.log(cloneBanner);
