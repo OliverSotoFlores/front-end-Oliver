@@ -108,3 +108,12 @@ list.addEventListener('click',function(e) {
       list.removeChild(li);
   }
 })
+
+
+//Leasson 10: Interacting with form
+const addForm = document.forms['add-book'];
+addForm.addEventListener('submit', function(e) {
+  e.preventDefault();
+  const value =  addForm.querySelector('input[type="text"]').value;
+  console.log(value);
+});
