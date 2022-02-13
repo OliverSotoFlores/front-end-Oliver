@@ -75,7 +75,7 @@ bookList.previousElementSibling.querySelector('p').innerHTML+= "</br> Hola a tod
 
 //Leasson 8: DOM events/removing
 
-var h2 = document.querySelector('#book-list h2');
+/*var h2 = document.querySelector('#book-list h2');
 
 h2.addEventListener('click', function(event) {
   console.log(event.target);
@@ -97,4 +97,14 @@ const link = document.querySelector('#page-banner a');
 link.addEventListener('click', function (e) {
   e.preventDefault();
   console.log('Navigation to',e.target.textContent,' Was prevented');
+})*/
+
+//Leasson 9: Bubbling events
+
+const list = document.querySelector('#book-list ul');
+list.addEventListener('click',function(e) {
+  if (e.target.className == 'delete') {
+      const li = e.target.parentElement;
+      list.removeChild(li);
+  }
 })
