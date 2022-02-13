@@ -124,6 +124,7 @@ const deleteBtn = document.createElement('Span');
 
 //add content
 deleteBtn.textContent = 'delete';
+//leasson 12: add classes and styles
 deleteBtn.className = 'delete';
 bookName.textContent = value;
 
