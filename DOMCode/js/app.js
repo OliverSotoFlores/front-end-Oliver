@@ -139,9 +139,18 @@ list.appendChild(li);
 
 
 //leasson 14:
-book.getAttribute('class');
+/*book.getAttribute('class');
 book.setAttribute('class', 'name-2');
 book.hasAttribute('class');
 book.hasAttribute('href');
 book.removeAttribute('class');
-book.setAttribute('class', 'name');
+book.setAttribute('class', 'name');*/
+
+const hideBox = document.querySelector('#hide');
+hideBox.addEventListener('change',function (e) {
+  if (hideBox.checked) {
+    list.style.display = 'none';
+  }else {
+    list.style.display = 'initial'
+  }
+})
