@@ -125,6 +125,7 @@ const deleteBtn = document.createElement('Span');
 //add content
 deleteBtn.textContent = 'delete';
 //leasson 12: add classes and styles
+bookName.className  = 'name';
 deleteBtn.className = 'delete';
 bookName.textContent = value;
 
@@ -135,3 +136,12 @@ list.appendChild(li);
 
 
 });
+
+
+//leasson 14:
+book.getAttribute('class');
+book.setAttribute('class', 'name-2');
+book.hasAttribute('class');
+book.hasAttribute('href');
+book.removeAttribute('class');
+book.setAttribute('class', 'name');
