@@ -1,1 +1,0 @@
-I did'n know how to deploy the app in browserfy, so only click the index file
