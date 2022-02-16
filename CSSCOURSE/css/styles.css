@@ -20,6 +20,21 @@ body {
   box-sizing: border-box;
 }
 
+#mainFooter {
+  background: #333;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+}
+
+@media (max-width:600px){
+  #main, #sideBar {
+    width: 100%;
+    float: none;
+    border: none;
+  }
+}
 /* p {
   border-top: 5px solid blue;
   border-right: 2px dotted green;
