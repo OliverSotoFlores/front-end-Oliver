@@ -15,10 +15,24 @@ h3 {
 .primary-btn {
   padding: 10px 15px;
   border: 0;
+  border-radius: 10px;
 }
 .primary-btn {
   background: #3b5998;
   color: #fff;
+}
+ul#menu {
+  list-style: none;
+}
+ul#menu li {
+  padding: 10px 0;
+}
+ul#menu li a {
+  color: #20B2AA;
+  text-decoration: none;
+}
+ul#menu li a:hover {
+  color: #000;
 }
 .bordered {
   border-top: dotted 1px #000;
