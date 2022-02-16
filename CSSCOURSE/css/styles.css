@@ -5,7 +5,22 @@ body {
   margin: 0;
 }
 
-p {
+#main {
+  float: right;
+  width: 70%;
+  padding: 0 30px;
+  box-sizing: border-box;
+}
+
+#sideBar {
+  float: left;
+  width: 30%;
+  padding: 10px;
+  border-right: 1px solid #333;
+  box-sizing: border-box;
+}
+
+/* p {
   border-top: 5px solid blue;
   border-right: 2px dotted green;
   border-bottom: 5px dashed red;
@@ -22,7 +37,7 @@ p {
   padding: 10px 20px;
 
   padding: 20px;
-}
+} */
 
 .container{
   width: 80%;
@@ -59,4 +74,18 @@ p {
   color: black;
   text-decoration: none;
   font-size: 18px;
+}
+
+#jumbo {
+  background-image: url('../images/bg.jpg');
+  background-position: center center;
+  min-height: 200px;
+  text-align: center;
+}
+
+#jumbo h1{
+  color: black;
+  font-size: 45px;
+  padding-top: 20px;
+  line-height: 1.6em;
 }
